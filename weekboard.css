@@ -1,0 +1,95 @@
+/* Головна сторінка — тижневий планувальник у стилі паперового настільного аркуша */
+body.week-open .main{max-width:none;width:calc(100% - 190px);padding:20px 17px 35px}
+body.week-open .sidebar{width:190px;flex:none;padding:20px 10px}
+body.week-open .top{margin-bottom:15px}
+body.week-open .top h1{font-size:26px;letter-spacing:-.7px}
+body.week-open .top p{margin-top:3px;font-size:12px}
+body.week-open .eyebrow{margin-bottom:2px}
+body.week-open .backup-footer{margin-top:20px}
+.board-toolbar{display:flex;align-items:center;justify-content:space-between;gap:13px;flex-wrap:wrap;margin-bottom:12px}
+.board-toolbar .date-nav{margin:0}
+.board-toolbar .date-nav strong{font-size:14px}
+.board-toolbar-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.board-help{font-size:12px;color:#798281}
+.board-week-stats{font-size:12px;color:#5f6a68}
+.board-scroll{width:100%;overflow-x:auto;overscroll-behavior-inline:contain;padding-bottom:7px}
+.week-board{display:grid;grid-template-columns:repeat(5,minmax(155px,1fr)) minmax(144px,.86fr) minmax(197px,1.12fr);gap:7px;min-width:1120px;align-items:start;background:white;border:1px solid #d8dbd9;border-radius:5px;padding:10px;box-shadow:0 9px 23px rgba(49,55,52,.035)}
+.board-day,.board-weekends,.board-aside{min-width:0}
+.board-day-head,.board-label{background:#dde0df;color:#303735;border:1px solid #c8cecb;min-height:37px;padding:6px 7px;display:flex;align-items:center;justify-content:space-between;gap:3px}
+.board-day-head.today{background:#d5e6d8;border-color:#91b09b}
+.board-day-head .board-day-name{font-size:12px;letter-spacing:.35px;font-weight:790}
+.board-day-head .board-day-date{font-size:11px;font-weight:700;color:#59615e}
+.board-day-head button{font-weight:750;color:inherit;border:0;background:none;text-align:left;min-width:0;padding:0}
+.board-day-head button:hover{text-decoration:underline}
+.board-time-rows{border-left:1px solid #c8cecb;border-right:1px solid #c8cecb}
+.board-slot{height:43px;display:flex;align-items:stretch;border-bottom:1px solid #d4d7d5;position:relative;background:#fff}
+.board-slot:nth-child(even){background:#fafbfa}
+.board-time{width:29px;flex:none;padding:4px 2px 0 4px;color:#767e7a;font-size:10px;font-variant-numeric:tabular-nums}
+.board-cell{min-width:0;flex:1;display:flex;flex-direction:column;justify-content:center;gap:1px;padding:1px 1px 1px 0;overflow:hidden}
+.board-slot-add{height:100%;min-height:22px;width:100%;text-align:left;background:transparent;color:#a9b3ae;border:0;font-size:14px;padding:0 5px;opacity:.45;line-height:1;flex-shrink:1}
+.board-slot-add:hover,.board-slot-add:focus-visible{opacity:1;color:#39735b;background:#eff6f0}
+.board-slot.has-task .board-slot-add{position:absolute;right:0;top:0;width:15px;opacity:0;background:#f0f8ef;text-align:center;padding:0;z-index:1}
+.board-slot.has-task:hover .board-slot-add,.board-slot.has-task:focus-within .board-slot-add{opacity:1}
+.board-slot-input{width:100%;min-width:0;height:28px;border:1px solid #579078;border-radius:3px;background:#fff;font-size:11px;padding:3px 5px;color:#273d31}
+.board-task{display:flex;align-items:center;gap:2px;min-height:17px;font-size:10.5px;min-width:0;max-width:100%;border-radius:3px;line-height:1.2}
+.board-task .check{width:11px;height:11px;margin:0 0 0 2px;flex:none;cursor:pointer}
+.board-task button{border:0;background:transparent;text-align:left;cursor:pointer;font:inherit;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:1px 2px;color:#31413d}
+.board-task button:hover{text-decoration:underline}
+.board-task.is-done{opacity:.47}
+.board-task.is-done button{text-decoration:line-through}
+.mark-green{background:#d0f0b8}.mark-orange{background:#ffddaf}.mark-pink{background:#ffc6d7}.mark-yellow{background:#fff2ab}.mark-none{background:transparent}
+.board-anytime{min-height:43px;border:1px solid #c8cecb;border-top:0;padding:5px 6px;background:#fcfcfc;display:flex;flex-direction:column;gap:4px}
+.board-anytime-head{font-size:9px;text-transform:uppercase;font-weight:800;color:#737a78;letter-spacing:.4px}
+.board-anytime .board-task{font-size:11px;min-height:18px}
+.board-add-anytime{align-self:flex-start;border:0;background:transparent;color:#537b68;font-size:10px;font-weight:650;padding:1px 0}
+.board-reminder{margin-top:8px;border:1px solid #c9cfca;min-height:139px;background:#fff}
+.board-label{min-height:28px;padding:4px 8px;font-size:11px;letter-spacing:.4px;font-weight:800}
+.board-reminder textarea,.board-important textarea{width:100%;height:108px;border:0;resize:vertical;line-height:23px;padding:4px 8px;background:repeating-linear-gradient(white,white 22px,#dadee0 22px,#dadee0 23px);font-size:12px;color:#38443f;outline-offset:-2px}
+.board-weekend{margin-bottom:8px}
+.board-weekend .board-slot{height:24px}
+.board-weekend .board-time{padding-top:1px;font-size:9px;width:23px}
+.board-weekend .board-task{min-height:15px;font-size:9px}
+.board-weekend .board-task .check{width:10px;height:10px}
+.board-weekend .board-slot-add{font-size:11px}
+.board-weekend .board-anytime{min-height:27px;padding:2px 4px}
+.board-weekend .board-anytime-head{font-size:8px}
+.board-weekend-note{border:1px solid #c9cfca;padding:1px 3px;margin-top:3px}
+.board-weekend-note textarea{display:block;width:100%;height:49px;resize:vertical;border:0;font-size:10px;line-height:15px;background:repeating-linear-gradient(white,white 14px,#d9dddd 14px,#d9dddd 15px)}
+.board-aside{display:flex;flex-direction:column;gap:9px}
+.board-month,.board-checklist,.board-important{border:1px solid #c9cfca;background:#fff}
+.board-month-value{min-height:53px;display:flex;flex-direction:column;justify-content:center;padding:7px 10px;gap:1px}
+.board-month-value strong{font-size:15px}
+.board-month-value span{font-size:11px;color:#6b756f}
+.board-checklist-items{padding:4px 6px}
+.board-check-row{display:flex;align-items:center;gap:4px;height:29px;border-bottom:1px solid #e0e1df}
+.board-check-row:last-child{border-bottom:0}
+.board-check-row input[type=text]{min-width:0;flex:1;width:0;height:26px;border:0;background:transparent;padding:2px 5px;font-size:11px;color:#303c35}
+.board-check-row input[type=text]:focus{background:#f4f8f4;outline:1px solid #a9c1ac}
+.board-check-row input[type=checkbox]{width:13px;height:13px;accent-color:#39775c;flex:none;margin:0 2px 0 0}
+.board-check-row.checked input[type=text]{color:#9aa29d;text-decoration:line-through}
+.board-important textarea{height:130px}
+.board-bottom-banner{font-size:12px;color:#7a8280;margin-top:10px;display:flex;gap:7px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.board-bottom-banner button{border:0;background:transparent;color:var(--brand);font-size:12px;text-decoration:underline;padding:2px}
+@media(max-width:800px){body.week-open .sidebar{display:none}body.week-open .main{width:100%;padding:15px 12px 100px}body.week-open .top{flex-direction:column;align-items:flex-start;gap:10px}body.week-open .week-board{min-width:1100px}.board-help{display:none}}
+@media(min-width:571px) and (max-width:800px){body.week-open .mobile-nav{display:grid;position:fixed;z-index:5;bottom:0;left:0;right:0;grid-template-columns:repeat(3,1fr);background:white;border-top:1px solid #e8ebe7;padding:6px}body.week-open .mobile-nav button{border:0;background:none;padding:8px}}
+@media print{
+@page{size:A3 landscape;margin:8mm}
+body,body.week-open{background:white;color:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sidebar,.mobile-nav,.top,.board-toolbar,.board-bottom-banner,.backup-footer,.toast,.modal-layer{display:none!important}
+body.week-open .main{width:100%;margin:0;padding:0;max-width:none}
+.board-scroll{overflow:visible!important;padding:0}
+.week-board{min-width:0!important;width:100%;padding:3px;gap:3px;box-shadow:none;border:0;border-radius:0;grid-template-columns:repeat(5,minmax(0,1fr)) minmax(0,.83fr) minmax(0,1.16fr)}
+.board-day-head,.board-label{min-height:20px;padding:2px 4px}
+.board-day-head .board-day-name,.board-day-head .board-day-date,.board-label{font-size:8px}
+.board-slot{height:24px}.board-weekend .board-slot{height:14px}
+.board-time{font-size:7px;width:23px;padding:2px}.board-weekend .board-time{font-size:6px;width:17px}
+.board-task{font-size:7px;min-height:11px}.board-weekend .board-task{font-size:6px;min-height:8px}
+.board-slot-add,.board-add-anytime,.board-check-row input[type=text]::placeholder{display:none!important}
+.board-anytime{min-height:20px;padding:2px}.board-anytime-head{font-size:7px}
+.board-reminder{min-height:88px;margin-top:4px}.board-reminder textarea{height:75px;font-size:8px;line-height:13px;background-size:auto}
+.board-weekend-note textarea{height:28px}
+.board-check-row{height:16px}.board-check-row input[type=text]{height:14px;font-size:8px}.board-check-row input[type=checkbox]{height:10px;width:10px}
+.board-month-value{min-height:25px;padding:2px 4px}.board-month-value strong{font-size:10px}.board-month-value span{font-size:8px}
+.board-important textarea{height:83px;font-size:9px;line-height:16px}
+.board-aside{gap:5px}
+}
