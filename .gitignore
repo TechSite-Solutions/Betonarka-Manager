@@ -1,0 +1,20 @@
+# Private order data and local exports
+/backups/
+/exports/
+*.backup.json
+backup-*.json
+*.sqlite
+*.sqlite3
+*.db
+.env
+.env.*
+
+# Python and development files
+__pycache__/
+*.pyc
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
