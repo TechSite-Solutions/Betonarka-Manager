@@ -1,0 +1,126 @@
+/* Бетонарка: замовлення інтегровані в паперовий тижневий планер */
+.week-board .board-slot{height:53px}
+.week-board .board-weekend .board-slot{height:27px}
+.board-slot .board-cell{justify-content:flex-start;overflow-y:auto;scrollbar-width:thin;padding-top:3px;padding-right:2px}
+.board-slot.has-order .board-cell{padding-right:20px}
+.board-order{flex:none;min-width:0;max-width:100%;border-left:3px solid #348770;border-radius:3px;background:#eaf6f0;font-size:10px;line-height:1.12;min-height:31px}
+.board-order button{width:100%;display:block;text-align:left;color:#29473c;padding:3px 4px;border:0;background:transparent;cursor:pointer;min-width:0}
+.board-order strong,.board-order span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.board-order strong{font-size:10px;font-weight:800}
+.board-order span{font-size:9px;color:#456153;margin-top:2px}
+.board-order:hover{outline:1px solid #619c87}
+.board-order.order-new{border-color:#609aab;background:#ecf6fb}
+.board-order.order-confirmed{border-color:#348770;background:#e5f5e8}
+.board-order.order-enroute{border-color:#c5822d;background:#fff0d4}
+.board-order.order-done{border-color:#899a8f;background:#f0f3f0;opacity:.76}
+.board-order.order-cancelled{border-color:#cb6660;background:#faf0f0;opacity:.64}
+.board-order.order-cancelled strong{text-decoration:line-through}
+.board-order-slot-add{position:absolute;right:0;top:1px;z-index:2;border:1px solid transparent;background:transparent;color:#4a8779;border-radius:3px;opacity:.66;min-width:19px;height:22px;padding:0;font-size:13px;font-weight:bold;cursor:pointer}
+.board-order-slot-add:hover,.board-order-slot-add:focus-visible{opacity:1;border-color:#97c3af;background:#e3f2e7}
+.board-slot.has-task .board-order-slot-add{opacity:0}
+.board-slot.has-task:hover .board-order-slot-add,.board-slot.has-task:focus-within .board-order-slot-add{opacity:1}
+.board-slot.has-task .board-slot-add{top:22px;height:21px}
+.board-anytime .board-order{width:100%}
+.board-anytime .board-order strong{font-size:10px}
+.board-weekend .board-order{min-height:16px}
+.board-weekend .board-order button{padding:1px 2px}
+.board-weekend .board-order strong{font-size:8px}
+.board-weekend .board-order span{font-size:8px;margin:0}
+.board-weekend .board-order-slot-add{height:18px;min-width:18px}
+.board-weekend .board-slot.has-task .board-slot-add{top:17px;height:10px}
+.order-day-panel{margin-bottom:19px}
+.order-day-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.orders-list{display:grid;gap:12px}
+.order-list-grid{grid-template-columns:repeat(auto-fill,minmax(315px,1fr))}
+.order-list-toolbar{display:flex;align-items:end;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-bottom:20px}
+.order-list-toolbar .field{min-width:min(100%,350px);flex:1}
+.order-list-toolbar input{background:white}
+.order-totals{font-size:13px;color:var(--sub);padding:9px 3px}
+.order-totals strong{font-weight:800;color:var(--brand)}
+.order-card{background:white;border:1px solid #d6e1dc;border-left:5px solid #609aab;border-radius:13px;padding:16px;box-shadow:0 4px 20px #132b2010;min-width:0}
+.order-card.order-confirmed{border-left-color:#348770}
+.order-card.order-enroute{border-left-color:#c5822d}
+.order-card.order-done{border-left-color:#899a8f;opacity:.82}
+.order-card.order-cancelled{border-left-color:#cb6660;opacity:.72}
+.order-card-head{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:12px}
+.order-card-head h3{font-size:17px;line-height:1.2;margin:5px 0 0;overflow-wrap:anywhere}
+.order-meta{color:#6d7a74;font-size:12px}
+.order-status{background:#eef2ef;color:#466457;padding:2px 6px;border-radius:5px;margin-left:5px;font-size:11px;font-weight:700}
+.order-mainline{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:11px}
+.order-mainline>strong{font-size:15px;color:#2a5947}
+.order-mainline>span{font-size:12px;border-radius:7px;background:#f0f3f0;padding:3px 7px;color:#64746b}
+.order-info{display:grid;gap:6px;color:#566a60;font-size:13px}
+.order-info span,.order-info p{overflow-wrap:anywhere}
+.order-info a{width:fit-content;overflow-wrap:anywhere}
+.order-info p{white-space:pre-wrap;margin:4px 0 0;padding:7px;background:#f6f7f5;border-radius:7px}
+.concrete-modal{width:min(100%,760px)}
+.concrete-modal .field-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+.concrete-modal .fields{gap:12px}
+.concrete-modal .field[hidden]{display:none!important}
+.concrete-modal textarea{resize:vertical;min-height:56px}
+.order-modal-caption{background:#edf6f0;border:1px solid #d4e7d9;color:#47735c;border-radius:9px;padding:10px;font-size:12px}
+body.week-open .mobile-nav{grid-template-columns:repeat(4,1fr)}
+@media(max-width:570px){
+  .mobile-nav{grid-template-columns:repeat(4,1fr)!important}
+  .concrete-modal .field-row{grid-template-columns:1fr}
+  .concrete-modal{max-height:92vh;padding:17px}
+  .order-list-grid{grid-template-columns:1fr}
+  .order-list-toolbar .field{min-width:100%}
+}
+@media print{
+ .week-board .board-slot{height:29px}
+ .week-board .board-weekend .board-slot{height:17px}
+ .board-order{min-height:13px;max-height:26px;overflow:hidden;background:#eaf6f0!important}
+ .board-order button{padding:1px}
+ .board-order strong{font-size:7px}
+ .board-order span{font-size:6px;margin-top:0}
+ .board-order-slot-add,.board-slot-add{display:none!important}
+ .board-slot .board-cell{overflow:hidden;padding-top:1px}
+ .board-slot.has-order .board-cell{padding-right:1px}
+}
+
+/* v3: read-only order details and safe one-click rescheduling, while retaining the paper board */
+.board-cell[data-slot-order]{cursor:pointer}
+.board-cell[data-slot-order]:hover{background:#f5faf6}
+.concrete-modal .order-fields{min-width:0;border:0;margin:0;padding:0;display:grid;gap:12px}
+.concrete-modal .order-form-view .order-fields{border-radius:12px;background:#fafcf9;padding:13px}
+.concrete-modal .order-form-view input:disabled,
+.concrete-modal .order-form-view textarea:disabled,
+.concrete-modal .order-form-view select:disabled{
+  opacity:1!important;color:#273b31!important;-webkit-text-fill-color:#273b31!important;
+  background:#fff!important;border-color:#e3ebe5!important;cursor:default
+}
+.concrete-modal .order-form-view .field{color:#526b5c}
+.concrete-modal .order-modal-mode{font-size:12px;color:#52725e;padding:8px 10px;border-radius:9px;background:#f2f7f2;margin-bottom:14px}
+.concrete-modal .quick-reschedule{border:1px solid #c5decf;border-radius:12px;padding:13px;background:#eef6f0;margin-bottom:17px}
+.quick-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:11px}
+.quick-head h3{font-size:15px;font-weight:800;margin:0;color:#2a6148}
+.quick-head span{font-size:12px;color:#587467}
+.quick-schedule-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.quick-schedule-row .field input{background:white}
+.quick-shifts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.quick-shifts .btn{background:#fff;border-color:#cbded2;color:#376448}
+.quick-reschedule-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:13px;flex-wrap:wrap}
+.quick-reschedule-actions span{font-size:11px;color:#60776a}
+.quick-reschedule-actions .btn{min-height:36px;padding:7px 11px}
+@media(max-width:570px){.quick-schedule-row{grid-template-columns:1fr}.quick-reschedule-actions{justify-content:flex-end}}
+@media print{.board-cell[data-slot-order]{cursor:default}}
+/* The empty remainder of an hour opens a concrete order. Keep the ordinary-task + as a small separate target. */
+.week-board .board-slot .board-cell{padding-right:21px}
+.week-board .board-slot .board-slot-add{
+  position:absolute;top:auto!important;bottom:1px;right:0;width:19px;height:21px;min-height:0;
+  padding:0;border:1px solid transparent;border-radius:3px;opacity:.58;background:transparent;
+  text-align:center;line-height:1;z-index:2;font-size:12px
+}
+.week-board .board-slot .board-slot-add:hover,.week-board .board-slot .board-slot-add:focus-visible{
+  opacity:1;border-color:#abcbb6;background:#eff8f0
+}
+.week-board .board-weekend .board-slot .board-slot-add{height:12px;font-size:10px;bottom:0}
+.week-board .board-weekend .board-order-slot-add{top:0}
+@media print{.week-board .board-slot .board-slot-add{display:none!important}}
+
+/* The primary view/edit action should be visible without scrolling through all of the customer details. */
+.order-view-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 11px;flex-wrap:wrap}
+.order-view-toolbar>span{font-size:12px;font-weight:750;color:#47785b}
+.order-view-toolbar>div{display:flex;gap:7px}
+.concrete-modal .order-form-edit .modal-actions{position:sticky;bottom:-18px;z-index:3;background:rgba(255,255,255,.98);padding:13px 0;border-top:1px solid #e7eee8;box-shadow:0 -5px 13px rgba(255,255,255,.9)}
